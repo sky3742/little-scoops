@@ -10,9 +10,9 @@ import type { DiaperTransaction } from "@/hooks/use-diaper-data";
 
 interface ActivityItem {
   id: number;
+  type: string;
   _domain: Domain;
   createdAt: string;
-  [key: string]: unknown;
 }
 
 interface RecentActivitiesProps {
@@ -47,8 +47,8 @@ function RecentActivities({ activities, onDelete }: RecentActivitiesProps) {
       <div className="space-y-0">
         {activities.map((item, i) => {
           const isMilk = item._domain === Domain.Milk;
-          const milkItem = isMilk ? (item as MilkTransaction) : null;
-          const diaperItem = !isMilk ? (item as DiaperTransaction) : null;
+          const milkItem = isMilk ? (item as unknown as MilkTransaction) : null;
+          const diaperItem = !isMilk ? (item as unknown as DiaperTransaction) : null;
 
           return (
             <div key={`${item._domain}-${item.id}-${item.createdAt}`}>

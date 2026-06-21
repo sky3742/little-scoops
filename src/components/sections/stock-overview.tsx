@@ -47,11 +47,13 @@ function StockOverview({ milkStock, diaperStock }: StockOverviewProps) {
                 <span>No data</span>
               )}
             </div>
-            {milkStock?.daysLeft !== null && milkStock.daysLeft <= LOW_STOCK_THRESHOLD_DAYS && (
-              <Badge variant="destructive" className="text-[10px] h-4 px-1.5">
-                Low
-              </Badge>
-            )}
+            {milkStock &&
+              milkStock.daysLeft != null &&
+              milkStock.daysLeft <= LOW_STOCK_THRESHOLD_DAYS && (
+                <Badge variant="destructive" className="text-[10px] h-4 px-1.5">
+                  Low
+                </Badge>
+              )}
           </div>
         </CardContent>
       </Card>
@@ -80,11 +82,13 @@ function StockOverview({ milkStock, diaperStock }: StockOverviewProps) {
                 <span>No data</span>
               )}
             </div>
-            {diaperStock?.daysLeft !== null && diaperStock.daysLeft <= LOW_STOCK_THRESHOLD_DAYS && (
-              <Badge variant="destructive" className="text-[10px] h-4 px-1.5">
-                Low
-              </Badge>
-            )}
+            {diaperStock &&
+              diaperStock.daysLeft != null &&
+              diaperStock.daysLeft <= LOW_STOCK_THRESHOLD_DAYS && (
+                <Badge variant="destructive" className="text-[10px] h-4 px-1.5">
+                  Low
+                </Badge>
+              )}
           </div>
         </CardContent>
       </Card>
