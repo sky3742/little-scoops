@@ -1,0 +1,7 @@
+if git diff --cached --name-only | grep -q "src/db/schema.ts"; then
+  echo "🔄 Schema changed, generating migration..."
+  pnpm db:generate
+  git add drizzle/
+fi
+
+pnpm exec lint-staged
